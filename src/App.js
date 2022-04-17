@@ -41,7 +41,6 @@ const App = () => {
 
   const onSaveExpenseDataHandler = (expenseData) => {
     setExpenseList([...expenseList, expenseData]);
-    console.log('expenselist', expenseList);
   }
 
   const onChangeFilterHandler = (filterValue) => {
