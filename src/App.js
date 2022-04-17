@@ -1,7 +1,7 @@
 import React, { useState }  from 'react';
-import ExpenseItem from "./compoents/expense-item/ExpenseItem";
-import NewExpense from "./compoents/new-expense/NewExpense";
-import Card from "./compoents/shared/card/Card";
+import ExpenseItem from "./components/expense-item/ExpenseItem";
+import NewExpense from "./components/new-expense/NewExpense";
+import Card from "./components/shared/card/Card";
 
 const expenses = [
   {
