@@ -1,3 +1,4 @@
+import React, { useState }  from 'react';
 import ExpenseItem from "./compoents/expense-item/ExpenseItem";
 import NewExpense from "./compoents/new-expense/NewExpense";
 import Card from "./compoents/shared/card/Card";
@@ -24,17 +25,22 @@ const expenses = [
   },
 ];
 
-function App() {
+const App = () => {
+  const [expenseList, setExpenseList] = useState(expenses);
   const buildElements = () => {
     const elements = [];
-    expenses.forEach((element) => {
+    expenseList.forEach((element) => {
       elements.push(<ExpenseItem key={element.id} expense={element}></ExpenseItem>);
     });
     return elements;
   };
+  const onSaveExpenseDataHandler = (expenseData) => {
+    setExpenseList([...expenseList, expenseData]);
+    console.log('expenselist', expenseList);
+  }
   return (
     <div>
-    <NewExpense></NewExpense>
+    <NewExpense onSaveExpenseData={onSaveExpenseDataHandler}></NewExpense>
     <Card className="expenses">
       {buildElements()}
     </Card>

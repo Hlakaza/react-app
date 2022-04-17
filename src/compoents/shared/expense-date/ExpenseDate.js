@@ -1,5 +1,5 @@
 import "./ExpenseDate.css";
-function ExpenseDate(props) {
+const ExpenseDate = (props) => {
   console.log('Date object',props.date);
   const dateValue = new Date(props.date);
   const date = {

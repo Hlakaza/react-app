@@ -1,5 +1,5 @@
 import "./Button.css";
-function Button(props) {
+const Button = (props) => {
    return <button>{props.children}</button>
 }
 

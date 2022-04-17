@@ -2,7 +2,8 @@ import Card from "../shared/card/Card";
 import ExpenseDate from "../shared/expense-date/ExpenseDate";
 import "./ExpenseItem.css";
 import React, { useState } from "react";
-function ExpenseItem(props) {
+
+const  ExpenseItem = (props) => {
 
   const [expense, setExpense] = useState(props.expense);
 
