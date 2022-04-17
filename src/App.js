@@ -2,6 +2,7 @@ import React, { useState }  from 'react';
 import ExpenseItem from "./components/expense-item/ExpenseItem";
 import NewExpense from "./components/new-expense/NewExpense";
 import Card from "./components/shared/card/Card";
+import ExpensesFilter from './components/shared/expense-filter/ExpensesFilter';
 
 const expenses = [
   {
@@ -26,7 +27,10 @@ const expenses = [
 ];
 
 const App = () => {
+
   const [expenseList, setExpenseList] = useState(expenses);
+  const [filterValue, setFilterValue] = useState('2019');
+
   const buildElements = () => {
     const elements = [];
     expenseList.forEach((element) => {
@@ -34,12 +38,19 @@ const App = () => {
     });
     return elements;
   };
+
   const onSaveExpenseDataHandler = (expenseData) => {
     setExpenseList([...expenseList, expenseData]);
     console.log('expenselist', expenseList);
   }
+
+  const onChangeFilterHandler = (filterValue) => {
+    setFilterValue(filterValue);
+  }
+
   return (
-    <div>
+    <div className='expenses'>
+    <ExpensesFilter selected={filterValue} onChangeFilter={onChangeFilterHandler}></ExpensesFilter>
     <NewExpense onSaveExpenseData={onSaveExpenseDataHandler}></NewExpense>
     <Card className="expenses">
       {buildElements()}
